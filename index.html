@@ -1,15 +1,104 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
+<<<<<<< HEAD
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jackson Wilding</title>
   <meta name="description" content="This is the resume of Jackson Wilding">
   <meta name="author" content="Me">
+=======
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jackson Wilding</title>
+  <meta name="description" content="Jackson Wilding">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <style>
+
+    .transition{
+      transition: all 2s;
+    }
+    nav{
+      position: fixed;
+      z-index: 1;
+    }
+
+  </style>
+>>>>>>> refs/remotes/origin/master
 </head>
 
 <body>
-  helloworld
+  <nav class="navbar fixed-top navbar-expand-lg bg-white">
+    <a hreff='#'>JW</a>
+    <button class="navbar-toggler" type="button" style="border-color: rgba(0,0,0,1);outline-color: rgba(0,0,0,0);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Navbar text with an inline element
+      </span>
+    </div>
+  </nav>
+  <div id='content' class="">
+    <div class="col-12 bg-light" style='height: 60vh'>
+      test
+    </div>
+  </div>
 </body>
+<script> 
+userWindow = {
+  isMobile: function(){
+    document.querySelector('.navbar-toggler').addEventListener('click',mobileNavbar);
+  }, 
+  notMobile: function(){
+    document.querySelector('.navbar-toggler').removeEventListener('click',mobileNavbar);
+  }, 
+  width = window.innerWidth, 
+  size = 0, 
+  isMobile = ''
+}
+let navbar = {
+  self: document.querySelector('nav'),
+  toggler: document.querySelector('.navbar-toggler'), 
+  menu: document.querySelector('.navbar-collapse')
+}
+function mobileNavbar(){
+  console.log('called')
+  navbar.menu.classList.contains('collapse')?navbar.menu.classList.remove('collapse'): navbar.menu.classList.add('collapse'); 
+}
+
+function isMobile(){
+  document.querySelector('.navbar-toggler').addEventListener('click',mobileNavbar);
+}
+function getWindowSize(){
+  if (window.innerWidth  <= 576) return {size:'mobile', isMobile: true}; 
+  if (window.innerWidth  <= 768) return {size:'tablet', isMobile: true};
+  if (window.innerWidth  <= 992) return {size:'laptop', isMobile: false};
+  if (window.innerWidth  <= 992) return {size:'desktop', isMobile: false};
+}
+
+document.querySelector('#content').style.paddingTop = navbar.self.offsetHeight + 'px';
+
+windowSize = getWindowSize();
+
+window.addEventListener('onresize', function(){
+  windowSize = getWindowSize();
+}) 
+
+if (windowSize.isMobile){
+  
+}
+
+</script>
 </html>
