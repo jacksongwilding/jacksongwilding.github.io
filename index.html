@@ -2,12 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-<<<<<<< HEAD
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jackson Wilding</title>
-  <meta name="description" content="This is the resume of Jackson Wilding">
-  <meta name="author" content="Me">
-=======
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jackson Wilding</title>
   <meta name="description" content="Jackson Wilding">
@@ -22,83 +16,273 @@
       position: fixed;
       z-index: 1;
     }
+    div.btn{
+      border-radius: 25px;
+    }
+    .noDisplay {
+      display: none;
+    }
+    .bullet {
+      border-radius: 100%;
+      background-color:  rgb(108, 117, 125);
+      height: 1em;
+      width: 1em;
+    }
+    .divider{border-bottom: 5px solid rgb(108, 117, 125) ;}
 
   </style>
->>>>>>> refs/remotes/origin/master
 </head>
 
 <body>
-  <nav class="navbar fixed-top navbar-expand-lg bg-white">
-    <a hreff='#'>JW</a>
-    <button class="navbar-toggler" type="button" style="border-color: rgba(0,0,0,1);outline-color: rgba(0,0,0,0);">
+  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white d-flex justify-content-between">
+    <a class="navbar-brand" hreff='#'><strong>JW</strong></a>
+    <button class="navbar-toggler" type="button" style="border-color: rgba(0,0,0,0);outline-color: rgba(0,0,0,0);">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="navbarText"> 
+      <ul class="navbar-nav w-auto mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Bio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">Experiences</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Get in touch</a>
         </li>
       </ul>
-      <span class="navbar-text">
-        Navbar text with an inline element
-      </span>
+      <div class="btn btn-secondary px-lr-3 noDisplay" type="button" >
+        Get in touch 
+      </div>
     </div>
   </nav>
   <div id='content' class="">
-    <div class="col-12 bg-light" style='height: 60vh'>
-      test
+    <div class="col-12 bg-dark text-light d-flex justify-content-center align-items-center" style='height: 60vh'>
+      <p>this is a test</p>
+    </div>
+    <div class="d-flex d-flex justify-content-center  bg-light">
+      <div class="col-11 text-dark my-5" id="bio">
+        <h3 class="mb-0">Bio</h3>
+        <div>
+          <div class="col-3 mb-2 divider">
+
+          </div>
+        </div>
+        <p>
+          Passionate about identifying and addressing potential and existing issues, 
+          I always strive  to increase my understanding of the world around me. 
+          I currently work full-time at Pinterest, helping ensure that issues are identified and resolved in a timely manner, 
+          both on an individual and global scale. As a Product Specialist, I’ve had the opportunity to interact directly with
+           end users and gain perspective on their pain points, and to work with the Product team to address the issues. 
+           At times when Product has been unable to act on user feedback due to backlog, 
+           I have stepped in and worked with them to prototype, document, and prove out new products or features. 
+        </p>
+      </div>
+    </div>
+    <div class="d-flex d-flex justify-content-center">
+      <div class="col-11 text-dark my-5" id="experience">
+        <h3 class="mb-0">Experience</h3>
+        <div>
+          <div class="col-3 mb-4  divider"></div>
+        </div>
+        <div class="row d-flex justify-content-between flex-nowrap col-12 mb-4">
+          <div class="">
+            <div class='bullet mt-1 mr-2' style="border: .25em solid #fff"></div>
+          </div>
+          <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+            <p>
+              <strong>Product Specialist</strong><br>
+              <strong style="color: #afaeae">Pinterest: Sep'19 - present</strong><br>
+            </p>
+            <p>
+              I act as a bridge between our Sales teams and their advertisers and the Product team. 
+              I unblock issues experienced in the Pinterest business products suite by Sales and end users. 
+              Using this context and data, I identify and prioritize pain points and recommend product enhancements 
+              which will address them and recommend them to cross-functional stakeholders. 
+              I gather feedback on internal tools, processes and workflows and work with our Product and Engineering teams 
+              to automate or improve these tools. 
+            </p>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-between flex-nowrap col-12 mb-4">
+          <div class="">
+            <div class='bullet mt-1 mr-2' style="border: .25em solid #fff"></div>
+          </div>
+          <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+            <p>
+              <strong>Pinterest Tag Specialist</strong><br>
+              <strong style="color: #afaeae">Pinterest: Jan'19 - Sep'19</strong><br>
+            </p>
+            <p>
+              I supported Pinterest Partner Managers and Account Managers by helping their advertisers 
+              successfully implement Pinterest tracking on their site, unlocking additional sales revenue.
+               Support included one on one support with Sales or individual advertisers, facilitating team wide 
+               trainings and working with Management to unblock revenue. I also created tools that allowed Sales 
+               to automate portions of tracking implementation for their advertisers. 
+
+            </p>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-between flex-nowrap col-12 mb-4">
+          <div class="">
+            <div class='bullet mt-1 mr-2' style="border: .25em solid #fff"></div>
+          </div>
+          <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+            <p>
+              <strong>Account Manager</strong><br>
+              <strong style="color: #afaeae">Pinterest: Jan'18 - Jan'19</strong><br>
+            </p>
+            <p>
+              I worked with business to development strategies which allowed their accounts to grow 
+              while maintaining healthy revenue. I analyzed data to isolate trends and then provided 
+              data-driven optimizations designed to properly allocate budget and capitalize on under 
+              utilized opportunities to ultimately generate increased revenue.
+            </p>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-between flex-nowrap col-12 mb-4">
+          <div class="">
+            <div class='bullet mt-1 mr-2' style="border: .25em solid #fff"></div>
+          </div>
+          <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+            <p>
+              <strong>Marketing Specialist</strong><br>
+              <strong style="color: #afaeae">Hycomp: Mar'17 - Jan'18</strong><br>
+            </p>
+            <p>
+              I was responsible for conception, creation and approval of literature, graphics, and webpages. 
+              I worked with teams of engineers to produce technical documents, emphasizing key principles of 
+              our product against the more inexpensive, lower quality competition. I also maintained and updated the company website. 
+  
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="d-flex d-flex justify-content-center bg-light">
+      <div class="col-11 text-dark my-5" id="skills">
+        <h3 class="mb-0">Skills</h3>
+        <div>
+          <div class="col-3 mb-2 divider"style="border-bottom: 5px solid rgb(108, 117, 125) ;">
+
+          </div>
+        </div>
+        <div class="row col-12 mb-3">
+          <div class="col-4 py-1">
+            HTML
+          </div>
+          <div class="col-8 p-0"style="border: 3px solid rgb(108, 117, 125)" >
+            <div class="col-8 m-0" style="background-color: rgb(108, 117, 125); border: 1px solid rgb(108, 117, 125)">.</div>
+          </div>
+        </div>
+        <div class="row col-12 mb-3">
+          <div class="col-4 py-1">
+            CSS
+          </div>
+          <div class="col-8 p-0"style="border: 3px solid rgb(108, 117, 125)" >
+            <div class="col-9 m-0" style="background-color: rgb(108, 117, 125); border: 1px solid rgb(108, 117, 125)">.</div>
+          </div>
+        </div>
+        <div class="row col-12 mb-3">
+          <div class="col-4 py-1">
+            JS
+          </div>
+          <div class="col-8 p-0"style="border: 3px solid rgb(108, 117, 125)" >
+            <div class="col-10 m-0" style="background-color: rgb(108, 117, 125); border: 1px solid rgb(108, 117, 125)">.</div>
+          </div>
+        </div>
+        <div class="row col-12 mb-3">
+          <div class="col-4 py-1">
+            SQL
+          </div>
+          <div class="col-8 p-0"style="border: 3px solid rgb(108, 117, 125)" >
+            <div class="col-6 m-0" style="background-color: rgb(108, 117, 125); border: 1px solid rgb(108, 117, 125)">.</div>
+          </div>
+        </div>
+        <div class="row col-12 mb-3">
+          <div class="col-4 py-1">
+            PYTHON
+          </div>
+          <div class="col-8 p-0"style="border: 3px solid rgb(108, 117, 125)" >
+            <div class="col-5 m-0" style="background-color: rgb(108, 117, 125); border: 1px solid rgb(108, 117, 125)">.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex d-flex justify-content-center bg-white">
+      <div class="col-11 text-dark my-5" id="skills">
+        <h3 class="mb-0">Education</h3>
+        <div>
+          <div class="col-3 mb-2 divider"style="border-bottom: 5px solid rgb(108, 117, 125) ;">
+
+          </div>
+        </div>
+        <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+          <p>
+            <strong>Associates Degree</strong><br>
+            <strong style="color: #afaeae">Utah State university</strong><br>
+          </p>
+        </div>
+        <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+          <p>
+            <strong>Currently Enrolled</strong><br>
+            <strong style="color: #afaeae">Brigham Young University - Idaho</strong><br>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </body>
 <script> 
-userWindow = {
-  isMobile: function(){
-    document.querySelector('.navbar-toggler').addEventListener('click',mobileNavbar);
-  }, 
-  notMobile: function(){
-    document.querySelector('.navbar-toggler').removeEventListener('click',mobileNavbar);
-  }, 
-  width = window.innerWidth, 
-  size = 0, 
-  isMobile = ''
-}
+//Navbar object
 let navbar = {
   self: document.querySelector('nav'),
   toggler: document.querySelector('.navbar-toggler'), 
-  menu: document.querySelector('.navbar-collapse')
+  menu: document.querySelector('.navbar-collapse'),
+  collapse: function(){
+    navbar.menu.classList.contains('collapse')?navbar.menu.classList.remove('collapse'): navbar.menu.classList.add('collapse'); 
+  },
+  responsive: function(){
+    navbar.collapse();
+    navbar.menu.querySelector('div[type=button]').classList.contains('btn')?navbar.menu.querySelector('div[type=button]').classList.remove('btn'): navbar.menu.querySelector('div[type=button]').classList.contains('btn')
+  },
 }
-function mobileNavbar(){
-  console.log('called')
-  navbar.menu.classList.contains('collapse')?navbar.menu.classList.remove('collapse'): navbar.menu.classList.add('collapse'); 
-}
-
-function isMobile(){
-  document.querySelector('.navbar-toggler').addEventListener('click',mobileNavbar);
-}
-function getWindowSize(){
-  if (window.innerWidth  <= 576) return {size:'mobile', isMobile: true}; 
-  if (window.innerWidth  <= 768) return {size:'tablet', isMobile: true};
-  if (window.innerWidth  <= 992) return {size:'laptop', isMobile: false};
-  if (window.innerWidth  <= 992) return {size:'desktop', isMobile: false};
+//information used for responsive window
+let userWindow = {
+  nowMobile: function(){
+    document.querySelector('.navbar-toggler').addEventListener('click',navbar.responsive);
+    document.querySelector('#content').addEventListener('click',navbar.collapse)
+    userWindow.isMobile = true
+  }, 
+  notMobile: function(){
+    document.querySelector('.navbar-toggler').removeEventListener('click',navbar.responsive);
+    document.querySelector('#content').removeEventListener('click',navbar.collapse)
+    userWindow.isMobile = false
+  }, 
+  getSize: function(){
+    if(!userWindow.isMobile && window.innerWidth <= 768){
+        userWindow.nowMobile()
+    } else if (!userWindow.isMobile && window.innerWidth > 768){
+        userWindow.notMobile()
+    }
+  },
+  isMobile: (function getWindowSize(){
+    return (window.innerWidth <= 768)
+    })(),
 }
 
 document.querySelector('#content').style.paddingTop = navbar.self.offsetHeight + 'px';
 
-windowSize = getWindowSize();
+window.addEventListener('onresize', userWindow.getSize) 
 
-window.addEventListener('onresize', function(){
-  windowSize = getWindowSize();
-}) 
-
-if (windowSize.isMobile){
-  
-}
+if(userWindow.isMobile) userWindow.nowMobile(); 
 
 </script>
 </html>
