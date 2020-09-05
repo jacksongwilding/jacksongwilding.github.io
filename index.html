@@ -31,6 +31,9 @@
       height: 1em;
       width: 1em;
     }
+    .nav-link{
+      cursor: pointer;
+    }
     .divider{border-bottom: 5px solid rgb(108, 117, 125) ;}
 
   </style>
@@ -45,19 +48,19 @@
     <div class="collapse navbar-collapse" id="navbarText"> 
       <ul class="navbar-nav w-auto mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Bio <span class="sr-only">(current)</span></a>
+        <div class='nav-link' onclick="navbar.scroll('bio')">Bio <span class="sr-only">(current)</span></div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Experiences</a>
+          <div class='nav-link' onclick="navbar.scroll('experience')">Experiences</div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Skills</a>
+          <div class='nav-link' onclick="navbar.scroll('skills')">Skills</div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Education</a>
+          <div class='nav-link' onclick="navbar.scroll('education')">Education</div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Get in touch</a>
+          <div class='nav-link'>Get in touch</a>
         </li>
       </ul>
       <div class="btn btn-secondary px-lr-3 noDisplay" type="button" >
@@ -67,7 +70,7 @@
   </nav>
   <div id='content' class="">
     <div class="col-12 bg-dark text-light d-flex justify-content-center align-items-center row m-0 p-o" style='height: 60vh; background-image: url("./images/forest.jpg"); background-position: center;'>
-      <div class="row d-flex justify-content-around col-12" style="font-size: 2.75em">
+      <div class="row d-flex justify-content-around col-12 col-lg-7" style="font-size: 2.75em">
         <img class="mr-3" src="./images/J_W white noB.svg" style="height: 2em; border: .1em solid #fff">
         <div style="font-family: 'Montserrat', serif; line-height: 1;">
           Jackson<br>Wilding
@@ -75,7 +78,7 @@
       </div>
     </div>
     <div class="d-flex d-flex justify-content-center  bg-light">
-      <div class="col-11 text-dark my-5" id="bio">
+      <div class="col-11 text-dark my-5 col-lg-7" id="bio">
         <h3 class="mb-0">Bio</h3>
         <div>
           <div class="col-3 mb-2 divider">
@@ -94,7 +97,7 @@
       </div>
     </div>
     <div class="d-flex d-flex justify-content-center">
-      <div class="col-11 text-dark my-5" id="experience">
+      <div class="col-11 text-dark my-5 col-lg-7" id="experience">
         <h3 class="mb-0">Experience</h3>
         <div>
           <div class="col-3 mb-4  divider"></div>
@@ -175,7 +178,7 @@
     </div>
     </div>
     <div class="d-flex d-flex justify-content-center bg-light">
-      <div class="col-11 text-dark my-5" id="skills">
+      <div class="col-11 text-dark my-5 col-lg-7" id="skills">
         <h3 class="mb-0">Skills</h3>
         <div>
           <div class="col-3 mb-2 divider"style="border-bottom: 5px solid rgb(108, 117, 125) ;">
@@ -187,7 +190,7 @@
             HTML
           </div>
           <div class="col-8 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
-            <div class="col-4 m-0 h-100" style="background-color: #fff;"></div>
+            <div class="col-4 m-0 h-100 bg-light"></div>
           </div>
         </div>
         <div class="row col-12 mb-3">
@@ -195,7 +198,7 @@
             CSS
           </div>
           <div class="col-8 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
-            <div class="col-3 m-0 h-100" style="background-color: #fff;"></div>
+            <div class="col-3 m-0 h-100 bg-light"></div>
           </div>
         </div>
         <div class="row col-12 mb-3">
@@ -203,7 +206,7 @@
             JS
           </div>
           <div class="col-8 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
-            <div class="col-2 m-0 h-100" style="background-color: #fff;"></div>
+            <div class="col-2 m-0 h-100 bg-light"></div>
           </div>
         </div>
         <div class="row col-12 mb-3">
@@ -211,7 +214,7 @@
             SQL
           </div>
           <div class="col-8 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
-            <div class="col-6 m-0 h-100" style="background-color: #fff;"></div>
+            <div class="col-6 m-0 h-100 bg-light"></div>
           </div>
         </div>
         <div class="row col-12 mb-3">
@@ -219,13 +222,13 @@
             PYTHON
           </div>
           <div class="col-8 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
-            <div class="col-7 m-0 h-100" style="background-color: #fff;"></div>
+            <div class="col-7 m-0 h-100 bg-light"></div>
           </div>
         </div>
       </div>
     </div>
     <div class="d-flex d-flex justify-content-center bg-white">
-      <div class="col-11 text-dark my-5" id="skills">
+      <div class="col-11 text-dark my-5 col-lg-7" id="education">
         <h3 class="mb-0">Education</h3>
         <div>
           <div class="col-3 mb-2 divider"style="border-bottom: 5px solid rgb(108, 117, 125) ;">
@@ -259,8 +262,16 @@ let navbar = {
   },
   responsive: function(){
     navbar.collapse();
+    document.querySelector('.navbar-brand').firstElementChild.src = './images/J_W dark noB - fav.svg'
     navbar.menu.querySelector('div[type=button]').classList.contains('btn')?navbar.menu.querySelector('div[type=button]').classList.remove('btn'): navbar.menu.querySelector('div[type=button]').classList.contains('btn')
   },
+  scroll: function(dest){
+    window.scrollTo({
+      top:  document.querySelector(`#${dest}`).offsetTop - 75,
+      behavior: 'smooth'
+    }); 
+    navbar.collapse();
+  }
 }
 //information used for responsive window
 let userWindow = {
@@ -290,7 +301,7 @@ document.querySelector('#content').style.paddingTop = navbar.self.offsetHeight +
 
 window.addEventListener('onresize', userWindow.getSize) 
 
-if(userWindow.isMobile) userWindow.nowMobile(); 
+userWindow.isMobile?userWindow.nowMobile():userWindow.notMobile();
 
 </script>
 </html>
