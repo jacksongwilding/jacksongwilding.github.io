@@ -56,15 +56,17 @@
 </head>
 
 <body>
-  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white d-flex justify-content-between">
-    <a class="navbar-brand display_mobile" hreff='#'><img src="./images/J_W dark noB - fav.svg" style="height: 1.5em"></a>
-    <a class="navbar-brand display_desktop" hreff='#'><img src="./images/Full name-stacked.svg" style="height: 1.5em"></a>
-    <button class="navbar-toggler" type="button" style="border-color: rgba(0,0,0,0);outline-color: rgba(0,0,0,0);" onclick="navbar.collapse()">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText"> 
-      <div>
-        <ul class="navbar-nav w-auto mr-auto">
+  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white d-flex justify-content-between p-0">
+    <div class='d-flex flex-nowrap justify-content-between py-3 col-md-1'>
+      <a class="navbar-brand display_mobile" hreff='#'><img src="./images/J_W dark noB - fav.svg" style="height: 1.5em"></a>
+      <a class="navbar-brand display_desktop" hreff='#'><img src="./images/Full name-stacked.svg" style="height: 1.5em"></a>
+      <button class="navbar-toggler" type="button" style="border-color: rgba(0,0,0,0);outline-color: rgba(0,0,0,0);" onclick="navbar.collapse()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse transition col-md-11 col-lg-11 bg-md-light" id="navbarText" style="overflow: hidden; max-height: 0px;"> 
+      <div class="d-flex justify-content-between col-lg-12">
+        <ul class="navbar-nav w-auto mr-auto ml-md-3 ml-lg-1">
           <li class="nav-item active">
           <div class='nav-link bio' onclick="navbar.scroll('bio')">Bio</div>
           </li>
@@ -280,12 +282,16 @@ let navbar = {
   toggler: document.querySelector('.navbar-toggler'), 
   menu: document.querySelector('.navbar-collapse'),
   collapse: function(){
-    navbar.menu.style.maxHeight = navbar.menu.
-    navbar.menu.classList.contains('collapse')?navbar.menu.classList.remove('collapse'): navbar.menu.classList.add('collapse'); 
+    if (navbar.menu.style.maxHeight == '0px'){
+      navbar.menu.style.maxHeight = navbar.menu.firstElementChild.offsetHeight + 'px'
+    }else if (userWindow.isMobile) {
+      navbar.menu.style.maxHeight = '0px'
+    }
+    //navbar.menu.classList.contains('collapse')?navbar.menu.classList.remove('collapse'): navbar.menu.classList.add('collapse'); 
   },
   responsive: function(){
-    navbar.collapse();
-    document.querySelector('.navbar-brand').firstElementChild.src = './images/J_W dark noB - fav.svg'
+    document.querySelector('.navbar-brand').firstElementChild.src = './images/J_W dark noB - fav.svg'; 
+
   },
   scroll: function(dest){
     navbar.self.querySelector(`.active`).classList.remove('active');
@@ -313,12 +319,12 @@ let getInTouch = {
 
 //information used for responsive window
 let userWindow = {
-  nowMobile: function(){
+  nowMobile: function(){)
     document.querySelector('#content').addEventListener('click',navbar.collapse)
-    userWindow.isMobile = true
+    userWindow.isMobile = true 
   }, 
   notMobile: function(){
-    document.querySelector('.navbar-toggler').removeEventListener('click',navbar.responsive);
+    navbar.collapse()
     document.querySelector('#content').removeEventListener('click',navbar.collapse)
     userWindow.isMobile = false
   }, 
@@ -346,6 +352,8 @@ function init(){
 
   //set exact contact form height
 }
+
+init()
 
 
 </script>
