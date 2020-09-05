@@ -64,7 +64,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
-    <div class="navbar-collapse transition col-md-11 col-lg-11 bg-md-light" id="navbarText" style="overflow: hidden; max-height: 0px;"> 
+    <div class="navbar-collapse transition col-md-11 col-lg-11" id="navbarText" style="overflow: hidden; max-height: 0px;"> 
       <div class="d-flex justify-content-between col-lg-12">
         <ul class="navbar-nav w-auto mr-auto ml-md-3 ml-lg-1">
           <li class="nav-item active">
@@ -319,7 +319,7 @@ let getInTouch = {
 
 //information used for responsive window
 let userWindow = {
-  nowMobile: function(){)
+  nowMobile: function(){
     document.querySelector('#content').addEventListener('click',navbar.collapse)
     userWindow.isMobile = true 
   }, 
