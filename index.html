@@ -34,46 +34,63 @@
     .nav-link{
       cursor: pointer;
     }
+    .nav-item.active{
+      font-weight:625;
+    }
+    .display_mobile{
+      display: none; 
+    }
+    .display_desktop{
+      display:inherit;
+    }
+    @media (max-width: 768px) { 
+      .display_mobile{
+        display: inherit; 
+      }
+      .display_desktop{
+        display:none;
+      }
+    }
     .divider{border-bottom: 5px solid rgb(108, 117, 125) ;}
-
   </style>
 </head>
 
 <body>
   <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white d-flex justify-content-between">
-    <a class="navbar-brand" hreff='#'><img src="./images/J_W dark noB - fav.svg" style="height: 1.5em"></a>
+    <a class="navbar-brand display_mobile" hreff='#'><img src="./images/J_W dark noB - fav.svg" style="height: 1.5em"></a>
+    <a class="navbar-brand display_desktop" hreff='#'><img src="./images/Full name-stacked.svg" style="height: 1.5em"></a>
     <button class="navbar-toggler" type="button" style="border-color: rgba(0,0,0,0);outline-color: rgba(0,0,0,0);">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText"> 
       <ul class="navbar-nav w-auto mr-auto">
         <li class="nav-item active">
-        <div class='nav-link' onclick="navbar.scroll('bio')">Bio <span class="sr-only">(current)</span></div>
+        <div class='nav-link bio' onclick="navbar.scroll('bio')">Bio</div>
         </li>
         <li class="nav-item">
-          <div class='nav-link' onclick="navbar.scroll('experience')">Experiences</div>
+          <div class='nav-link experience' onclick="navbar.scroll('experience')">Experiences</div>
         </li>
         <li class="nav-item">
-          <div class='nav-link' onclick="navbar.scroll('skills')">Skills</div>
+          <div class='nav-link skills' onclick="navbar.scroll('skills')">Skills</div>
         </li>
         <li class="nav-item">
-          <div class='nav-link' onclick="navbar.scroll('education')">Education</div>
+          <div class='nav-link education' onclick="navbar.scroll('education')">Education</div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item display_mobile">
           <div class='nav-link'>Get in touch</a>
         </li>
       </ul>
-      <div class="btn btn-secondary px-lr-3 noDisplay" type="button" >
+      <div class="btn btn-secondary px-lr-3 display_desktop" type="button" >
         Get in touch 
       </div>
     </div>
   </nav>
   <div id='content' class="">
     <div class="col-12 bg-dark text-light d-flex justify-content-center align-items-center row m-0 p-o" style='height: 60vh; background-image: url("./images/forest.jpg"); background-position: center;'>
-      <div class="row d-flex justify-content-around col-12 col-lg-7" style="font-size: 2.75em">
+      <div class="row d-flex justify-content-around col-12 col-lg-7 align-items-center" style="font-size: 2.75em">
         <img class="mr-3" src="./images/J_W white noB.svg" style="height: 2em; border: .1em solid #fff">
         <div style="font-family: 'Montserrat', serif; line-height: 1;">
-          Jackson<br>Wilding
+          Jackson <span class='display_mobile'></span>Wilding
         </div>
       </div>
     </div>
@@ -263,9 +280,10 @@ let navbar = {
   responsive: function(){
     navbar.collapse();
     document.querySelector('.navbar-brand').firstElementChild.src = './images/J_W dark noB - fav.svg'
-    navbar.menu.querySelector('div[type=button]').classList.contains('btn')?navbar.menu.querySelector('div[type=button]').classList.remove('btn'): navbar.menu.querySelector('div[type=button]').classList.contains('btn')
   },
   scroll: function(dest){
+    navbar.self.querySelector(`.active`).classList.remove('active');
+    navbar.self.querySelector(`.${dest}`).classList.add('active')
     window.scrollTo({
       top:  document.querySelector(`#${dest}`).offsetTop - 75,
       behavior: 'smooth'
@@ -273,10 +291,10 @@ let navbar = {
     navbar.collapse();
   }
 }
+
 //information used for responsive window
 let userWindow = {
   nowMobile: function(){
-    document.querySelector('.navbar-toggler').addEventListener('click',navbar.responsive);
     document.querySelector('#content').addEventListener('click',navbar.collapse)
     userWindow.isMobile = true
   }, 
@@ -300,6 +318,7 @@ let userWindow = {
 document.querySelector('#content').style.paddingTop = navbar.self.offsetHeight + 'px';
 
 window.addEventListener('onresize', userWindow.getSize) 
+document.querySelector('.navbar-toggler').addEventListener('click',navbar.collapse);
 
 userWindow.isMobile?userWindow.nowMobile():userWindow.notMobile();
 
