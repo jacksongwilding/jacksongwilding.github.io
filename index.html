@@ -13,7 +13,7 @@
   <style>
 
     .transition{
-      transition: all 2s;
+      transition: all .5s;
     }
     nav{
       position: fixed;
@@ -59,29 +59,31 @@
   <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white d-flex justify-content-between">
     <a class="navbar-brand display_mobile" hreff='#'><img src="./images/J_W dark noB - fav.svg" style="height: 1.5em"></a>
     <a class="navbar-brand display_desktop" hreff='#'><img src="./images/Full name-stacked.svg" style="height: 1.5em"></a>
-    <button class="navbar-toggler" type="button" style="border-color: rgba(0,0,0,0);outline-color: rgba(0,0,0,0);">
+    <button class="navbar-toggler" type="button" style="border-color: rgba(0,0,0,0);outline-color: rgba(0,0,0,0);" onclick="navbar.collapse()">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText"> 
-      <ul class="navbar-nav w-auto mr-auto">
-        <li class="nav-item active">
-        <div class='nav-link bio' onclick="navbar.scroll('bio')">Bio</div>
-        </li>
-        <li class="nav-item">
-          <div class='nav-link experience' onclick="navbar.scroll('experience')">Experiences</div>
-        </li>
-        <li class="nav-item">
-          <div class='nav-link skills' onclick="navbar.scroll('skills')">Skills</div>
-        </li>
-        <li class="nav-item">
-          <div class='nav-link education' onclick="navbar.scroll('education')">Education</div>
-        </li>
-        <li class="nav-item display_mobile">
-          <div class='nav-link'>Get in touch</a>
-        </li>
-      </ul>
-      <div class="btn btn-secondary px-lr-3 display_desktop" type="button" >
-        Get in touch 
+      <div>
+        <ul class="navbar-nav w-auto mr-auto">
+          <li class="nav-item active">
+          <div class='nav-link bio' onclick="navbar.scroll('bio')">Bio</div>
+          </li>
+          <li class="nav-item">
+            <div class='nav-link experience' onclick="navbar.scroll('experience')">Experiences</div>
+          </li>
+          <li class="nav-item">
+            <div class='nav-link skills' onclick="navbar.scroll('skills')">Skills</div>
+          </li>
+          <li class="nav-item">
+            <div class='nav-link education' onclick="navbar.scroll('education')">Education</div>
+          </li>
+          <li class="nav-item display_mobile" onclick="getInTouch.move()">
+            <div class='nav-link'>Get in touch</a>
+          </li>
+        </ul>
+        <div class="btn btn-secondary px-lr-3 display_desktop" type="button" onclick="getInTouch.move()">
+          Get in touch 
+        </div>
       </div>
     </div>
   </nav>
@@ -258,7 +260,7 @@
             <strong style="color: #afaeae">Utah State university</strong><br>
           </p>
         </div>
-        <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+        <div class='pl-2' style="border-left: .25em solid #e6e6e6; ">
           <p>
             <strong>Currently Enrolled</strong><br>
             <strong style="color: #afaeae">Brigham Young University - Idaho</strong><br>
@@ -266,6 +268,9 @@
         </div>
       </div>
     </div>
+    <div class='getInTouch row col-7 bg-dark transition' style="right:0; top: 0; height: 100vh; position: fixed; margin-right: -100vw;">
+    </div>
+    
   </div>
 </body>
 <script> 
@@ -275,6 +280,7 @@ let navbar = {
   toggler: document.querySelector('.navbar-toggler'), 
   menu: document.querySelector('.navbar-collapse'),
   collapse: function(){
+    navbar.menu.style.maxHeight = navbar.menu.
     navbar.menu.classList.contains('collapse')?navbar.menu.classList.remove('collapse'): navbar.menu.classList.add('collapse'); 
   },
   responsive: function(){
@@ -290,6 +296,19 @@ let navbar = {
     }); 
     navbar.collapse();
   }
+}
+
+let getInTouch = {
+  self: document.querySelector('.getInTouch'), 
+  move: function(){
+    if (getInTouch.self.style.marginRight=='0px'){
+      getInTouch.self.style.marginRight = -1 *getInTouch.self.offsetWidth + 'px'; 
+      document.querySelector('#content').removeEventListener('click', getInTouch.move)
+    }else{
+      getInTouch.self.style.marginRight = '0px'
+      document.querySelector('#content').addEventListener('click', getInTouch.move)
+    }
+  },
 }
 
 //information used for responsive window
@@ -315,12 +334,19 @@ let userWindow = {
     })(),
 }
 
-document.querySelector('#content').style.paddingTop = navbar.self.offsetHeight + 'px';
+function init(){
+  //Set content below navbar
+  document.querySelector('#content').style.paddingTop = navbar.self.offsetHeight + 'px';
 
-window.addEventListener('onresize', userWindow.getSize) 
-document.querySelector('.navbar-toggler').addEventListener('click',navbar.collapse);
+  //make responsive on window resize
+  window.addEventListener('onresize', userWindow.getSize)
 
-userWindow.isMobile?userWindow.nowMobile():userWindow.notMobile();
+  //detect mobile
+  userWindow.isMobile?userWindow.nowMobile():userWindow.notMobile();
+
+  //set exact contact form height
+}
+
 
 </script>
 </html>
