@@ -1,4 +1,5 @@
-<!doctype html>
+<!-- Contact Us Drawer needs to collapse the existing menu if mobile -->
+  <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -31,11 +32,31 @@
       height: 1em;
       width: 1em;
     }
+    .navbar{
+      z-index: 2!important;
+    }
     .nav-link{
       cursor: pointer;
     }
     .nav-item.active{
       font-weight:625;
+    }
+    .getInTouch{
+      z-index: 3
+    }
+    .dropDown {
+      height: .75em; 
+      width:.75em; 
+      border-bottom: .25em solid  rgb(108, 117, 125); 
+      border-right: .25em solid  rgb(108, 117, 125); 
+      transform: rotate(45deg);
+    }
+    .downDrop{
+      max-height: 0; 
+      overflow: hidden;
+    }
+    .sideBar{
+      border-left: .25em solid #e6e6e6;
     }
     .display_mobile{
       display: none; 
@@ -127,7 +148,7 @@
           <div class="">
             <div class='bullet mt-1 mr-2' style="border: .25em solid #fff"></div>
           </div>
-          <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+          <div class='pl-2 sideBar'>
             <p>
               <strong>Product Specialist</strong><br>
               <strong style="color: #afaeae">Pinterest: Sep'19 - present</strong><br>
@@ -146,7 +167,7 @@
           <div class="">
             <div class='bullet mt-1 mr-2' style="border: .25em solid #fff"></div>
           </div>
-          <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+          <div class='pl-2 sideBar'>
             <p>
               <strong>Pinterest Tag Specialist</strong><br>
               <strong style="color: #afaeae">Pinterest: Jan'19 - Sep'19</strong><br>
@@ -165,7 +186,7 @@
           <div class="">
             <div class='bullet mt-1 mr-2' style="border: .25em solid #fff"></div>
           </div>
-          <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+          <div class='pl-2 sideBar'>
             <p>
               <strong>Account Manager</strong><br>
               <strong style="color: #afaeae">Pinterest: Jan'18 - Jan'19</strong><br>
@@ -182,7 +203,7 @@
           <div class="">
             <div class='bullet mt-1 mr-2' style="border: .25em solid #fff"></div>
           </div>
-          <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+          <div class='pl-2 sideBar'>
             <p>
               <strong>Marketing Specialist</strong><br>
               <strong style="color: #afaeae">Hycomp: Mar'17 - Jan'18</strong><br>
@@ -206,44 +227,113 @@
 
           </div>
         </div>
-        <div class="row col-12 mb-3">
-          <div class="col-4 py-1">
+        <div class="row col-12">
+          <div class="col-4 col-sm-2 py-1">
             HTML
           </div>
-          <div class="col-8 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
+          <div class="col-6 col-sm-9 col-md-9 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
             <div class="col-4 m-0 h-100 bg-light"></div>
           </div>
+          <div class='col-2 col-sm-1 p-0 d-flex justify-content-center align-items-center'>
+            <div class='dropDown transition'>
+
+            </div>
+          </div>
+          <div class='downDrop transition row col-12 mb-3 mt-2'>
+            <div>
+              <div class=' col-12 ml-3 sideBar pb-4'>
+                I have a working understanding of HTML that has allowed me to contribute to success of clients and Pinterest as a whole, regarding conversion measurement. 
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="row col-12 mb-3">
-          <div class="col-4 py-1">
+        <div class="row col-12">
+          <div class="col-4 col-sm-2 py-1">
             CSS
           </div>
-          <div class="col-8 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
+          <div class="col-6 col-sm-9 col-md-9 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
             <div class="col-3 m-0 h-100 bg-light"></div>
           </div>
+          <div class='col-2 col-sm-1 p-0 d-flex justify-content-center align-items-center'>
+            <div class='dropDown transition' style='transform: rotate(45deg);'>
+  
+            </div>
+          </div>
+          <div class=' downDrop transition row col-12 mb-3 mt-2'>
+            <div>
+              <div class=' col-12 ml-3 sideBar pb-4'>
+                I have been using CSS to simple webpages for the past several years. I am familiar with frameworks like Bootstrap, 
+                I am also able to write my own CSS if needed. In my current role,
+                I maintain a front end web app I created and wrote entirely custom CSS in order to keep from referencing external sources. <br> <br>
+                This webpage utilizes Bootstrap, tailored with custom CSS. 
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="row col-12 mb-3">
-          <div class="col-4 py-1">
+        <div class="row col-12 mb-2">
+          <div class="col-4 col-sm-2 py-1">
             JS
           </div>
-          <div class="col-8 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
+          <div class="col-6 col-sm-9 col-md-9 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
             <div class="col-2 m-0 h-100 bg-light"></div>
           </div>
+          <div class='col-2 col-sm-1 p-0 d-flex justify-content-center align-items-center'>
+            <div class='dropDown transition' style='transform: rotate(45deg);'>
+            </div>
+          </div>
+          <div class='downDrop transition row col-12 mb-3 mt-2'>
+            <div>
+              <div class=' col-12 ml-3 sideBar pb-4'>
+                I have been employing my knowledge related to JavaScript for the past 3 years. I began by writing simple tracking scripts for my advertisers when in Sales 
+                and have grown to buidling my own front end application in my previous role, which I continue to maintain. I have also contributed to the behavior of Pinterest Converison tracking in a front end environment, 
+                including developing and alpha testing a feature that was later implemented in the product. 
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="row col-12 mb-3">
-          <div class="col-4 py-1">
+        <div class="row col-12">
+          <div class="col-4 col-sm-2 py-1">
             SQL
           </div>
-          <div class="col-8 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
+          <div class="col-6 col-sm-9 col-md-9 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
             <div class="col-6 m-0 h-100 bg-light"></div>
           </div>
+          <div class='col-2 col-sm-1 p-0 d-flex justify-content-center align-items-center'>
+            <div class='dropDown transition' style='transform: rotate(45deg);'>
+
+            </div>
+          </div>
+          <div class=' downDrop transition row col-12 mb-3 mt-2'>
+            <div>
+              <div class=' col-12 ml-3 sideBar pb-4'>
+                In my my current and most recent role, I used SQL to query tables of logged events in order to troubleshoot. 
+                This included joining tables and handling JSON in an SQL environmnet. 
+                We primarily used Presto and SparkSQL. 
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="row col-12 mb-3">
-          <div class="col-4 py-1">
+        <div class="row col-12">
+          <div class="col-4 col-sm-2 py-1">
             PYTHON
           </div>
-          <div class="col-8 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
+          <div class="col-6 col-sm-9 col-md-9 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)">
             <div class="col-7 m-0 h-100 bg-light"></div>
+          </div>
+          <div class='col-2 col-sm-1 p-0 d-flex justify-content-center align-items-center'>
+            <div class='dropDown transition' style='transform: rotate(45deg);'>
+
+            </div>
+          </div>
+          <div class=' downDrop transition row col-12 mb-3 mt-2'>
+            <div>
+              <div class=' col-12 ml-3 sideBar pb-4'>
+                In a professional environment, I have created jupyter reports that combine SQL and Python 
+                in order to provide information without needing to write SQL queries. 
+                My understanding of Python comes primarily from an entry level Python course and my own practical experience implementation.
+                
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -256,13 +346,13 @@
 
           </div>
         </div>
-        <div class='pl-2' style="border-left: .25em solid #e6e6e6;">
+        <div class='pl-2 sideBar'>
           <p>
             <strong>Associates Degree</strong><br>
             <strong style="color: #afaeae">Utah State university</strong><br>
           </p>
         </div>
-        <div class='pl-2' style="border-left: .25em solid #e6e6e6; ">
+        <div class='pl-2 sideBar'>
           <p>
             <strong>Currently Enrolled</strong><br>
             <strong style="color: #afaeae">Brigham Young University - Idaho</strong><br>
@@ -270,7 +360,8 @@
         </div>
       </div>
     </div>
-    <div class='getInTouch row col-7 bg-dark transition' style="right:0; top: 0; height: 100vh; position: fixed; margin-right: -100vw;">
+    <div class='getInTouch row col-10 col-md-7 bg-dark transition' style="right:0; top: 0; height: 100vh; position: fixed; margin-right: -100vw;">
+      test
     </div>
     
   </div>
@@ -281,10 +372,10 @@ let navbar = {
   self: document.querySelector('nav'),
   toggler: document.querySelector('.navbar-toggler'), 
   menu: document.querySelector('.navbar-collapse'),
-  collapse: function(){
+  collapse: function(resize){
     if (navbar.menu.style.maxHeight == '0px'){
       navbar.menu.style.maxHeight = navbar.menu.firstElementChild.offsetHeight + 'px'
-    }else if (userWindow.isMobile) {
+    }else if (userWindow.isMobile || (resize && !userWindow.isMobile)) {
       navbar.menu.style.maxHeight = '0px'
     }
     //navbar.menu.classList.contains('collapse')?navbar.menu.classList.remove('collapse'): navbar.menu.classList.add('collapse'); 
@@ -319,19 +410,26 @@ let getInTouch = {
 
 //information used for responsive window
 let userWindow = {
-  nowMobile: function(){
-    document.querySelector('#content').addEventListener('click',navbar.collapse)
+  nowMobile: function(firstTime){
+    if (!firstTime && navbar.menu.style.maxHeight != '0px'){
+      navbar.collapse()
+      document.querySelector('#content').addEventListener('click',navbar.collapse)
     userWindow.isMobile = true 
+    }
+
   }, 
-  notMobile: function(){
-    navbar.collapse()
-    document.querySelector('#content').removeEventListener('click',navbar.collapse)
-    userWindow.isMobile = false
+  notMobile: function(firstTime){
+    if ((!firstTime && navbar.menu.style.maxHeight == '0px')||firstTime){
+      navbar.collapse()
+      document.querySelector('#content').removeEventListener('click',navbar.collapse)
+      userWindow.isMobile = false
+    }
   }, 
   getSize: function(){
+    document.querySelector('.getInTouch').style.marginRight = getInTouch.self.style.marginRight = -1 *getInTouch.self.offsetWidth + 'px';     
     if(!userWindow.isMobile && window.innerWidth <= 768){
         userWindow.nowMobile()
-    } else if (!userWindow.isMobile && window.innerWidth > 768){
+    } else if (userWindow.isMobile && window.innerWidth > 768){
         userWindow.notMobile()
     }
   },
@@ -340,17 +438,43 @@ let userWindow = {
     })(),
 }
 
+class dropDown {
+  constructor(self){
+    this.self = self; 
+  };
+  rotate = function(){
+    let downDrop = this.parentElement.parentElement.querySelector('.downDrop')
+    if(!this.classList.contains('rotated')){
+      this.style.transform  = 'rotate(-135deg)'
+      this.classList.add('rotated'); 
+      downDrop.style.maxHeight = downDrop.firstElementChild.offsetHeight + 'px'; 
+    }else {
+      this.style.transform  = 'rotate(45deg)'
+      this.classList.remove('rotated'); 
+      downDrop.style.maxHeight = '0px'; 
+    }
+  }
+
+}
+
 function init(){
   //Set content below navbar
   document.querySelector('#content').style.paddingTop = navbar.self.offsetHeight + 'px';
 
   //make responsive on window resize
-  window.addEventListener('onresize', userWindow.getSize)
+  window.addEventListener('resize', userWindow.getSize)
 
   //detect mobile
-  userWindow.isMobile?userWindow.nowMobile():userWindow.notMobile();
+  userWindow.isMobile?userWindow.nowMobile(true):userWindow.notMobile(true);
 
   //set exact contact form height
+  document.querySelector('.getInTouch').style.marginRight = getInTouch.self.style.marginRight = -1 *getInTouch.self.offsetWidth + 'px'; 
+
+  //dropdown
+  let dropDownEl = document.querySelectorAll('.dropDown'); 
+  let dropDowns = []
+  dropDownEl.forEach(drop => {dropDowns.push(new dropDown(drop))})
+  dropDowns.forEach(drops => {drops.self.addEventListener('click', drops.rotate)})
 }
 
 init()
