@@ -71,6 +71,9 @@
       .display_desktop{
         display:none;
       }
+      .navbar-collapse{
+        box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.05);
+      }
     }
     .divider{border-bottom: 5px solid rgb(108, 117, 125) ;}
   </style>
@@ -85,26 +88,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
-    <div class="navbar-collapse transition col-md-11 col-lg-11" id="navbarText" style="overflow: hidden; max-height: 0px;"> 
-      <div class="d-flex justify-content-between col-lg-12">
-        <ul class="navbar-nav w-auto mr-auto ml-md-3 ml-lg-1">
-          <li class="nav-item active">
+    <div class="navbar-collapse collapsed transition col-md-11 col-lg-11 bg-sm-light bg-none p-0" id="navbarText" style="overflow: hidden; max-height: 0px;"> 
+      <div class="d-flex justify-content-between col-lg-12 p-0">
+        <ul class="navbar-nav w-auto mr-auto ml-md-3 ml-lg-1 col-12 col-md-9 p-0">
+          <li class="nav-item pl-4 active">
           <div class='nav-link bio' onclick="navbar.scroll('bio')">Bio</div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item pl-4">
             <div class='nav-link experience' onclick="navbar.scroll('experience')">Experiences</div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item pl-4">
             <div class='nav-link skills' onclick="navbar.scroll('skills')">Skills</div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item pl-4">
             <div class='nav-link education' onclick="navbar.scroll('education')">Education</div>
           </li>
-          <li class="nav-item display_mobile" onclick="getInTouch.move()">
-            <div class='nav-link'>Get in touch</a>
+          <li class="nav-item pl-4 py-2 w-100 bg-light display_mobile"  style="color: #666!important"onclick="getInTouch.move()">
+            <div class='nav-link'><strong>Get in touch</strong></a>
           </li>
         </ul>
-        <div class="btn btn-secondary px-lr-3 display_desktop" type="button" onclick="getInTouch.move()">
+        <div class="btn btn-secondary px-lr-3 display_desktop mr-2" type="button" onclick="getInTouch.move()">
           Get in touch 
         </div>
       </div>
@@ -112,7 +115,7 @@
   </nav>
   <div id='content' class="">
     <div class="col-12 bg-dark text-light d-flex justify-content-center align-items-center row m-0 p-o" style='height: 60vh; background-image: url("./images/forest.jpg"); background-position: center;'>
-      <div class="row d-flex justify-content-around col-12 col-lg-7 align-items-center" style="font-size: 2.75em">
+      <div class="row d-flex justify-content-center col-12 col-lg-7 align-items-center" style="font-size: 2.75em">
         <img class="mr-3" src="./images/J_W white noB.svg" style="height: 2em; border: .1em solid #fff">
         <div style="font-family: 'Montserrat', serif; line-height: 1;">
           Jackson <span class='display_mobile'></span>Wilding
@@ -232,7 +235,7 @@
             HTML
           </div>
           <div class="col-6 col-sm-9 col-md-9 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
-            <div class="col-4 m-0 h-100 bg-light"></div>
+            <div class="col-4 m-0 h-100 bg-light p-0"></div>
           </div>
           <div class='col-2 col-sm-1 p-0 d-flex justify-content-center align-items-center'>
             <div class='dropDown transition'>
@@ -242,7 +245,9 @@
           <div class='downDrop transition row col-12 mb-3 mt-2'>
             <div>
               <div class=' col-12 ml-3 sideBar pb-4'>
-                I have a working understanding of HTML that has allowed me to contribute to success of clients and Pinterest as a whole, regarding conversion measurement. 
+                I have a working understanding of HTML that has allowed me to contribute
+                 to success of clients and Pinterest as a whole, regarding conversion measurement. 
+                 For instance, I coded this webpage myself. 
               </div>
             </div>
           </div>
@@ -252,7 +257,7 @@
             CSS
           </div>
           <div class="col-6 col-sm-9 col-md-9 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
-            <div class="col-3 m-0 h-100 bg-light"></div>
+            <div class="col-3 m-0 h-100 bg-light p-0"></div>
           </div>
           <div class='col-2 col-sm-1 p-0 d-flex justify-content-center align-items-center'>
             <div class='dropDown transition' style='transform: rotate(45deg);'>
@@ -275,7 +280,7 @@
             JS
           </div>
           <div class="col-6 col-sm-9 col-md-9 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
-            <div class="col-2 m-0 h-100 bg-light"></div>
+            <div class="col-2 m-0 h-100 bg-light p-0"></div>
           </div>
           <div class='col-2 col-sm-1 p-0 d-flex justify-content-center align-items-center'>
             <div class='dropDown transition' style='transform: rotate(45deg);'>
@@ -296,7 +301,7 @@
             SQL
           </div>
           <div class="col-6 col-sm-9 col-md-9 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)" >
-            <div class="col-6 m-0 h-100 bg-light"></div>
+            <div class="col-6 m-0 h-100 bg-light p-0"></div>
           </div>
           <div class='col-2 col-sm-1 p-0 d-flex justify-content-center align-items-center'>
             <div class='dropDown transition' style='transform: rotate(45deg);'>
@@ -318,7 +323,7 @@
             PYTHON
           </div>
           <div class="col-6 col-sm-9 col-md-9 p-1 d-flex justify-content-end"style="background-color: rgb(108, 117, 125)">
-            <div class="col-7 m-0 h-100 bg-light"></div>
+            <div class="col-7 m-0 h-100 bg-light p-0"></div>
           </div>
           <div class='col-2 col-sm-1 p-0 d-flex justify-content-center align-items-center'>
             <div class='dropDown transition' style='transform: rotate(45deg);'>
@@ -360,10 +365,18 @@
         </div>
       </div>
     </div>
-    <div class='getInTouch row col-10 col-md-7 bg-dark transition' style="right:0; top: 0; height: 100vh; position: fixed; margin-right: -100vw;">
-      test
+    <div class='getInTouch collapsed col-10 col-md-7 bg-dark transition text-light p-3 px-4 px-md-5 p-md-4' style="right:0; top: 0; height: 100vh; position: fixed; margin-right: -100vw;">
+      <div class='row col-12 d-flex align-items-start'>
+        <h4 class=''>Get in touch</h4>
+      </div>
+      <div class='row col-12 d-flex align-items-start px-0 m-0'>
+        <form action="" class='col-12 px-0'>
+          <input type="text" class='col-12 pt-0 mb-2 m-0'>
+          <textarea class='col-12 px-0 m-0 mb-2'></textarea>
+          <button> submit</button>
+        </form>
+      </div>
     </div>
-    
   </div>
 </body>
 <script> 
@@ -373,10 +386,12 @@ let navbar = {
   toggler: document.querySelector('.navbar-toggler'), 
   menu: document.querySelector('.navbar-collapse'),
   collapse: function(resize){
-    if (navbar.menu.style.maxHeight == '0px'){
+    if (navbar.menu.classList.contains('collapsed')){
       navbar.menu.style.maxHeight = navbar.menu.firstElementChild.offsetHeight + 'px'
+      navbar.menu.classList.remove('collapsed')
     }else if (userWindow.isMobile || (resize && !userWindow.isMobile)) {
       navbar.menu.style.maxHeight = '0px'
+      navbar.menu.classList.add('collapsed')
     }
     //navbar.menu.classList.contains('collapse')?navbar.menu.classList.remove('collapse'): navbar.menu.classList.add('collapse'); 
   },
@@ -398,12 +413,17 @@ let navbar = {
 let getInTouch = {
   self: document.querySelector('.getInTouch'), 
   move: function(){
-    if (getInTouch.self.style.marginRight=='0px'){
+    if (!getInTouch.self.classList.contains('collapsed')){
       getInTouch.self.style.marginRight = -1 *getInTouch.self.offsetWidth + 'px'; 
-      document.querySelector('#content').removeEventListener('click', getInTouch.move)
+      document.querySelector('#content').removeEventListener('click', getInTouch.move); 
+      getInTouch.self.classList.add('collapsed')
     }else{
       getInTouch.self.style.marginRight = '0px'
       document.querySelector('#content').addEventListener('click', getInTouch.move)
+      getInTouch.self.classList.remove('collapsed')
+      if(userWindow.isMobile){
+        navbar.collapse(); 
+      }
     }
   },
 }
@@ -412,9 +432,8 @@ let getInTouch = {
 let userWindow = {
   nowMobile: function(firstTime){
     if (!firstTime && navbar.menu.style.maxHeight != '0px'){
-      navbar.collapse()
-      document.querySelector('#content').addEventListener('click',navbar.collapse)
-    userWindow.isMobile = true 
+      navbar.collapse(true)
+      userWindow.isMobile = true 
     }
 
   }, 
