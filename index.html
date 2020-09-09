@@ -496,14 +496,15 @@ class messageForm {
       }
     }
     console.log('tested!')
-    let myPassword = "_?%h=PQ%K#4x*^qd?Ls2?$ck";
+    let firstpsswrd = 'C6L8_^VYXrw-t+nb6TfLe23$'
+    let psswrd = "_?%h=PQ%K#4x*^qd?Ls2?$ck";
     let url = '?'
     let response = {
-      mail: CryptoJS.AES.encrypt(this.self.querySelector('#email').value, myPassword).toString(), 
-      subject: CryptoJS.AES.encrypt(this.self.querySelector('#subject').value, myPassword).toString(), 
-      body: CryptoJS.AES.encrypt(this.self.querySelector('#messageBody').value, myPassword).toString()
+      mail: CryptoJS.AES.encrypt(this.self.querySelector('#email').value, psswrd).toString(), 
+      subject: CryptoJS.AES.encrypt(this.self.querySelector('#subject').value, psswrd).toString(), 
+      body: CryptoJS.AES.encrypt(this.self.querySelector('#messageBody').value, psswrd).toString()
     }
-    url += `md=${CryptoJS.AES.encrypt(JSON.stringify(response), myPassword)}`
+    url += `md=${CryptoJS.AES.encrypt(JSON.stringify(response), firstpsswrd)}`
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', `https://resume--form.herokuapp.com/mail/${url}`);
     //xmlhttp.open('GET', `http://localhost:3000/mail/${url}`)
