@@ -167,10 +167,3 @@ let navbar = {
   }
   
   init()
-  
-  
-  let gryBG = document.querySelectorAll('.bg-light')
-  gryBG.forEach(element => element.classList.remove('bg-light'))
-  gryBG.forEach(element => element.classList.add('bg-grey'))
-  gryBG.forEach(element => element.classList.remove('text-dark'))
-  gryBG.forEach(element => element.classList.add('text-light'))
