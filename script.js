@@ -149,7 +149,7 @@ let navbar = {
   function checkQueryString(callback){
     if (/(?<=co=)[^&]+/.test(location.search)){
       let xmlhttp = new XMLHttpRequest();
-      xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${url}`);
+      xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`);
       //xmlhttp.open('GET', `http://localhost:3000/cv/${location.search}`)
       xmlhttp.setRequestHeader('cv', 'coverletter')
       xmlhttp.onload = function () {
