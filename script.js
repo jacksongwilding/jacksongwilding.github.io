@@ -131,8 +131,7 @@ let navbar = {
       }
       url += `md=${CryptoJS.AES.encrypt(JSON.stringify(response), firstpsswrd)}`
       let xmlhttp = new XMLHttpRequest();
-      xmlhttp.open('GET', `https://resume--form.herokuapp.com/mail/${url}`);
-      //xmlhttp.open('GET', `http://localhost:3000/mail/${url}`)
+      /file/.test(location.href)?xmlhttp.open('GET', `http://localhost:3000/mail/${url}`):xmlhttp.open('GET', `https://resume--form.herokuapp.com/mail/${url}`);
       xmlhttp.setRequestHeader('tag', 'resume')
       xmlhttp.onload = function () {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -149,8 +148,7 @@ let navbar = {
   function checkQueryString(callback){
     if (/(?<=co=)[^&]+/.test(location.search)){
       let xmlhttp = new XMLHttpRequest();
-      xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`);
-      //xmlhttp.open('GET', `http://localhost:3000/cv/${location.search}`)
+      /file/.test(location.href)?xmlhttp.open('GET', `http://localhost:3000/cv/${location.search}`):xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`);
       xmlhttp.setRequestHeader('cv', 'coverletter')
       xmlhttp.onload = function () {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -164,33 +162,53 @@ let navbar = {
   }
 
   function dynamicCV(response){
-    document.querySelector('#bio > p').innerHTML = response;
+    response = JSON.parse(response);
+    if (response.company&&!response.position){
+      document.querySelectorAll('#bio > h3').forEach( h3 => (h3.innerText = `Why I'm a great fit for ${response.company}`))
+    }else if (response.company&&response.position){
+      document.querySelectorAll('#bio > h3').forEach( h3 => (h3.innerText = `Why I'll make a great ${response.company} ${response.position}`))
+    }
+    console.log(response);
+    cvBio = ''
+    response.bio.forEach(p => (cvBio += `<p>${p}</p>`))
+    if (response.bio) document.querySelector('#bio > p').innerHTML = cvBio;
+  }
+
+  //slide up greay background
+  function slideUpSecondaryIntro(){
+    setTimeout(
+      function(){
+        document.querySelectorAll('.parallax.grey').forEach( elem => elem.style.maxHeight = 0); 
+      },
+      350
+    )
+  }
+
+  //slide up white background
+  function slideUpIntro(){
+    setTimeout(
+      function(){
+        document.querySelectorAll('.parallax.light').forEach( elem => elem.style.maxHeight = 0);  
+        slideUpSecondaryIntro()
+      },
+      1050
+    )
+  }
+
+  //fade in name
+  function fadeInName(){
+    setTimeout(
+      function(){
+        document.querySelectorAll('.introAnim').forEach( elem => elem.style.opacity = 1); 
+        slideUpIntro()
+      },
+      750
+    )
   }
   
   function init(){
     checkQueryString(dynamicCV);
-    //Begin intro animation
-    setTimeout(
-      function(){
-        document.querySelectorAll('.introAnim').forEach( elem => elem.style.opacity = 1); 
-        setTimeout(
-          function(){
-            //alert('yup')
-            document.querySelectorAll('.parallax.light').forEach( elem => elem.style.maxHeight = 0); 
-            setTimeout(
-              function(){
-                //alert('yup')
-                document.querySelectorAll('.parallax.grey').forEach( elem => elem.style.maxHeight = '0'); 
-              }, 
-              300
-            )
-          }, 
-          1050
-        )
-      }, 
-      750
-    )
-    
+    fadeInName()
 
     //Set content below navbar
     document.querySelector('#content').style.paddingTop = navbar.self.offsetHeight + 'px';
