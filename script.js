@@ -137,7 +137,7 @@ let navbar = {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             callback(xmlhttp.responseText)
           } else {
-              notice("It looks like we cannot access this site", "Some websites do not allow other pages to load them in order to add additional security. You are still able to manually find the ID or Class dor the button and use the Event on button click generator.")
+              //notice("It looks like we cannot access this site", "Some websites do not allow other pages to load them in order to add additional security. You are still able to manually find the ID or Class dor the button and use the Event on button click generator.")
           }
       };
       xmlhttp.send();
@@ -171,7 +171,7 @@ let navbar = {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             callback(xmlhttp.responseText)
           } else {
-              notice("It looks like we cannot access this site", "Some websites do not allow other pages to load them in order to add additional security. You are still able to manually find the ID or Class dor the button and use the Event on button click generator.")
+              //notice("It looks like we cannot access this site", "Some websites do not allow other pages to load them in order to add additional security. You are still able to manually find the ID or Class dor the button and use the Event on button click generator.")
           }
       };
       xmlhttp.send();
