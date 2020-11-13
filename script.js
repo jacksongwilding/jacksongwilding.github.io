@@ -137,7 +137,7 @@ let navbar = {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             callback(xmlhttp.responseText)
           } else {
-              notice("It looks like we cannot access this site", "Some websites do not allow other pages to load them in order to add additional security. You are still able to manually find the ID or Class dor the button and use the Event on button click generator.")
+              //notice("It looks like we cannot access this site", "Some websites do not allow other pages to load them in order to add additional security. You are still able to manually find the ID or Class dor the button and use the Event on button click generator.")
           }
       };
       xmlhttp.send();
@@ -154,7 +154,7 @@ let navbar = {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             callback(xmlhttp.responseText)
           } else {
-              notice("It looks like we cannot access this site", "Some websites do not allow other pages to load them in order to add additional security. You are still able to manually find the ID or Class dor the button and use the Event on button click generator.")
+              //notice("It looks like we cannot access this site", "Some websites do not allow other pages to load them in order to add additional security. You are still able to manually find the ID or Class dor the button and use the Event on button click generator.")
           }
       };
       xmlhttp.send();
@@ -162,16 +162,26 @@ let navbar = {
   }
 
   function dynamicCV(response){
+    let psswrd = "_?%h=PQ%K#4x*^qd?Ls2?$ck";
+    //console.log(response)
     response = JSON.parse(response);
     if (response.company&&!response.position){
       document.querySelectorAll('#bio > h3').forEach( h3 => (h3.innerText = `Why I'm a great fit for ${response.company}`))
     }else if (response.company&&response.position){
       document.querySelectorAll('#bio > h3').forEach( h3 => (h3.innerText = `Why I'll make a great ${response.company} ${response.position}`))
     }
-    console.log(response);
     cvBio = ''
-    response.bio.forEach(p => (cvBio += `<p>${p}</p>`))
-    if (response.bio) document.querySelector('#bio > p').innerHTML = cvBio;
+    if (response.bio){
+      response.bio.forEach(p => (cvBio += `<p>${CryptoJS.AES.decrypt(p, psswrd).toString(CryptoJS.enc.Utf8)}</p>`))
+      document.querySelector('#bio > p').innerHTML = cvBio;
+    } 
+    console.log(response.exp.length)
+    if (response.exp && response.exp.length >= 4){
+      let exps = document.querySelectorAll('.exp');
+      for (let i = 0; i < response.exp.length; i++){
+        exps[i].innerHTML = CryptoJS.AES.decrypt(response.exp[i], psswrd).toString(CryptoJS.enc.Utf8)
+      }
+    }
   }
 
   //slide up greay background
