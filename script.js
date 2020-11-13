@@ -175,7 +175,6 @@ let navbar = {
       response.bio.forEach(p => (cvBio += `<p>${CryptoJS.AES.decrypt(p, psswrd).toString(CryptoJS.enc.Utf8)}</p>`))
       document.querySelector('#bio > p').innerHTML = cvBio;
     } 
-    console.log(response.exp.length)
     if (response.exp && response.exp.length >= 4){
       let exps = document.querySelectorAll('.exp');
       for (let i = 0; i < response.exp.length; i++){
