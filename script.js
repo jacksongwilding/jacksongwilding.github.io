@@ -147,10 +147,27 @@ let navbar = {
 
   function checkQueryString(callback){
     if (/(?<=co=)[^&]+/.test(location.search)){
+      setInterval(
+        function(){
+          document.querySelectorAll('.introAnim').forEach( elem => {
+            if(elem.style.opacity == 1){
+              elem.style.opacity = ''
+            }else{
+              elem.style.opacity = 1
+            }
+          })
+        },
+        1000
+      )
       let xmlhttp = new XMLHttpRequest();
-      /file/.test(location.href)?xmlhttp.open('GET', `http://localhost:3000/cv/${location.search}`):xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`);
+      //file/.test(location.href)?xmlhttp.open('GET', `http://localhost:3000/cv/${location.search}`):xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`);
+      xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`)
       xmlhttp.setRequestHeader('cv', 'coverletter')
-      xmlhttp.onload = function () {
+      xmlhttp.onload = function (){
+        window.clearInterval(); 
+        //
+        document.querySelectorAll('.introAnim').forEach( elem => {elem.style.opacity = 1}); 
+        setTimeout(fadeInName, 1000)
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             callback(xmlhttp.responseText)
           } else {
@@ -158,20 +175,31 @@ let navbar = {
           }
       };
       xmlhttp.send();
+    }else{
+      fadeInName()
     }
   }
 
   function dynamicCV(response){
+    let psswrd = "_?%h=PQ%K#4x*^qd?Ls2?$ck";
+    //console.log(response)
     response = JSON.parse(response);
     if (response.company&&!response.position){
       document.querySelectorAll('#bio > h3').forEach( h3 => (h3.innerText = `Why I'm a great fit for ${response.company}`))
     }else if (response.company&&response.position){
       document.querySelectorAll('#bio > h3').forEach( h3 => (h3.innerText = `Why I'll make a great ${response.company} ${response.position}`))
     }
-    console.log(response);
     cvBio = ''
-    response.bio.forEach(p => (cvBio += `<p>${p}</p>`))
-    if (response.bio) document.querySelector('#bio > p').innerHTML = cvBio;
+    if (response.bio){
+      response.bio.forEach(p => (cvBio += `<p>${CryptoJS.AES.decrypt(p, psswrd).toString(CryptoJS.enc.Utf8)}</p>`))
+      document.querySelector('#bio > p').innerHTML = cvBio;
+    } 
+    if (response.exp && response.exp.length >= 4){
+      let exps = document.querySelectorAll('.exp');
+      for (let i = 0; i < response.exp.length; i++){
+        exps[i].innerHTML = CryptoJS.AES.decrypt(response.exp[i], psswrd).toString(CryptoJS.enc.Utf8)
+      }
+    }
   }
 
   //slide up greay background
@@ -199,16 +227,15 @@ let navbar = {
   function fadeInName(){
     setTimeout(
       function(){
-        document.querySelectorAll('.introAnim').forEach( elem => elem.style.opacity = 1); 
-        slideUpIntro()
-      },
-      750
+         document.querySelectorAll('.introAnim').forEach( elem => elem.style.opacity = 1); 
+         slideUpIntro()
+       },
+       750
     )
   }
   
   function init(){
     checkQueryString(dynamicCV);
-    fadeInName()
 
     //Set content below navbar
     document.querySelector('#content').style.paddingTop = navbar.self.offsetHeight + 'px';
