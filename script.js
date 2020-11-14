@@ -46,6 +46,7 @@ let navbar = {
         document.querySelector('#content').addEventListener('click', getInTouch.move)
         getInTouch.self.classList.remove('collapsed')
         if(userWindow.isMobile){
+          document.querySelector('#content').removeEventListener('click', getInTouch.move);
           navbar.collapse(); 
         }
       }
@@ -178,10 +179,13 @@ let navbar = {
     let psswrd = "_?%h=PQ%K#4x*^qd?Ls2?$ck";
     //console.log(response)
     response = JSON.parse(response);
-    if (response.company&&!response.position){
-      document.querySelectorAll('#bio > h3').forEach( h3 => (h3.innerText = `Why I'm a great fit for ${response.company}`))
-    }else if (response.company&&response.position){
-      document.querySelectorAll('#bio > h3').forEach( h3 => (h3.innerText = `Why I'll make a great ${response.company} ${response.position}`))
+    if (response.company){
+      document.querySelector('.bio').innerHTML = `${response.company} + Jackson`
+      if (response.position){
+        document.querySelectorAll('#bio > h3').forEach( h3 => (h3.innerText = `Why I'll make a great ${response.company} ${response.position}`))
+      }else {
+        document.querySelectorAll('#bio > h3').forEach( h3 => (h3.innerText = `Why I'm a great fit for ${response.company}`))
+      }
     }
     cvBio = ''
     if (response.bio){
