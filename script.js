@@ -147,27 +147,21 @@ let navbar = {
 
   function checkQueryString(callback){
     if (/(?<=co=)[^&]+/.test(location.search)){
-      setInterval(
-        function(){
-          document.querySelectorAll('.introAnim').forEach( elem => {
-            if(elem.style.opacity == 1){
-              elem.style.opacity = ''
-            }else{
-              elem.style.opacity = 1
-            }
-          })
-        },
-        1000
-      )
+      
       let xmlhttp = new XMLHttpRequest();
       //file/.test(location.href)?xmlhttp.open('GET', `http://localhost:3000/cv/${location.search}`):xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`);
       xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`)
       xmlhttp.setRequestHeader('cv', 'coverletter')
       xmlhttp.onload = function (){
-        window.clearInterval(); 
-        //
-        document.querySelectorAll('.introAnim').forEach( elem => {elem.style.opacity = 1}); 
-        setTimeout(fadeInName, 1000)
+        
+        
+         if (document.querySelector('.introAnim').style.opacity != 1){
+           document.querySelectorAll('.introAnim').forEach( elem => {elem.style.opacity = 1}); 
+           setTimeout(fadeInName, 1000)
+         }else{
+           setTimeout(fadeInName, 1000)
+         }
+         setTimeout(fadeInName, 1000)
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             callback(xmlhttp.responseText)
           } else {
