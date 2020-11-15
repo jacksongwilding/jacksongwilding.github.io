@@ -147,26 +147,19 @@ let navbar = {
   let message = new messageForm(document.querySelector('#message'))
 
   function checkQueryString(callback){
+    
     if (/(?<=co=)[^&]+/.test(location.search)){
-      
+      fadeInName(false)
       let xmlhttp = new XMLHttpRequest();
       //file/.test(location.href)?xmlhttp.open('GET', `http://localhost:3000/cv/${location.search}`):xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`);
       xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`)
       xmlhttp.setRequestHeader('cv', 'coverletter')
       xmlhttp.onload = function (){
-        
-        
-         if (document.querySelector('.introAnim').style.opacity != 1){
-           document.querySelectorAll('.introAnim').forEach( elem => {elem.style.opacity = 1}); 
-           setTimeout(fadeInName, 1000)
-         }else{
-           setTimeout(fadeInName, 1000)
-         }
          setTimeout(fadeInName, 1000)
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             callback(xmlhttp.responseText)
           } else {
-              //notice("It looks like we cannot access this site", "Some websites do not allow other pages to load them in order to add additional security. You are still able to manually find the ID or Class dor the button and use the Event on button click generator.")
+              console.warn('No response')//notice("It looks like we cannot access this site", "Some websites do not allow other pages to load them in order to add additional security. You are still able to manually find the ID or Class dor the button and use the Event on button click generator.")
           }
       };
       xmlhttp.send();
@@ -222,11 +215,11 @@ let navbar = {
   }
 
   //fade in name
-  function fadeInName(){
+  function fadeInName(cont = true){
     setTimeout(
       function(){
          document.querySelectorAll('.introAnim').forEach( elem => elem.style.opacity = 1); 
-         slideUpIntro()
+         if (cont) slideUpIntro()
        },
        750
     )
