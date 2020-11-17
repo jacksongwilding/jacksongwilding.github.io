@@ -1,3 +1,5 @@
+let time_now = performance.now();
+
 //GA
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -155,7 +157,8 @@ let navbar = {
       xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`)
       xmlhttp.setRequestHeader('cv', 'coverletter')
       xmlhttp.onload = function (){
-         setTimeout(fadeInName, 1000)
+        console.log('response received ' + (performance.now() - time_now))
+        slideUpIntro()
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             callback(xmlhttp.responseText)
           } else {
@@ -170,7 +173,6 @@ let navbar = {
 
   function dynamicCV(response){
     let psswrd = "_?%h=PQ%K#4x*^qd?Ls2?$ck";
-    //console.log(response)
     response = JSON.parse(response);
     if (response.company){
       document.querySelector('.bio').innerHTML = `${response.company} + Jackson`
@@ -226,6 +228,7 @@ let navbar = {
   }
   
   function init(){
+    console.log('load resources ' + (performance.now() - time_now))
     checkQueryString(dynamicCV);
 
     //Set content below navbar
