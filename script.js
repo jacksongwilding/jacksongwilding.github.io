@@ -4,7 +4,8 @@ let time_now = performance.now();
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'UA-103579861-2');
+gtag('config', 'UA-103579861-2', {'groups': 'theOne'});
+
 
 //Navbar object
 let navbar = {
@@ -153,8 +154,8 @@ let navbar = {
     if (/(?<=co=)[^&]+/.test(location.search)){
       fadeInName(false)
       let xmlhttp = new XMLHttpRequest();
-      //file/.test(location.href)?xmlhttp.open('GET', `http://localhost:3000/cv/${location.search}`):xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`);
-      xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`)
+      /file/.test(location.href)?xmlhttp.open('GET', `http://localhost:3000/cv/${location.search}`):xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`);
+      //xmlhttp.open('GET', `https://resume--form.herokuapp.com/cv/${location.search}`)
       xmlhttp.setRequestHeader('cv', 'coverletter')
       xmlhttp.onload = function (){
         console.log('response received ' + (performance.now() - time_now))
@@ -174,6 +175,8 @@ let navbar = {
   function dynamicCV(response){
     let psswrd = "_?%h=PQ%K#4x*^qd?Ls2?$ck";
     response = JSON.parse(response);
+    response.company && response.position?gtag('event', `${response.company}: ${response.position}`):gtag('send','event', response.company);
+
     if (response.company){
       document.querySelector('.bio').innerHTML = `${response.company} + Jackson`
       if (response.position){
