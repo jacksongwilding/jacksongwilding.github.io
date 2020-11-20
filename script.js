@@ -1,11 +1,13 @@
 let time_now = performance.now();
 
-//GA
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-103579861-2', {'groups': 'theOne'});
+//GTM
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NT8X3J7');
 
+window.dataLayer = window.dataLayer || [];
 
 //Navbar object
 let navbar = {
@@ -175,7 +177,7 @@ let navbar = {
   function dynamicCV(response){
     let psswrd = "_?%h=PQ%K#4x*^qd?Ls2?$ck";
     response = JSON.parse(response);
-    response.company && response.position?gtag('event', `${response.company}: ${response.position}`):gtag('send','event', response.company);
+    //response.company && response.position?gtag('event', `${response.company}: ${response.position}`):gtag('event', response.company);
 
     if (response.company){
       document.querySelector('.bio').innerHTML = `${response.company} + Jackson`
@@ -191,9 +193,15 @@ let navbar = {
       document.querySelector('#bio > p').innerHTML = cvBio;
     } 
     if (response.exp && response.exp.length >= 4){
-      let exps = document.querySelectorAll('.exp');
+      let div = document.querySelector('.expTemplate').cloneNode(true); 
+      document.querySelectorAll('.expTemplate').forEach( e => e.remove())
+
       for (let i = 0; i < response.exp.length; i++){
-        exps[i].innerHTML = CryptoJS.AES.decrypt(response.exp[i], psswrd).toString(CryptoJS.enc.Utf8)
+        let experience = div.cloneNode(true); 
+        experience.querySelector('.expTitle').innerHTML = CryptoJS.AES.decrypt(response.exp[i].position, psswrd).toString(CryptoJS.enc.Utf8)
+        experience.querySelector('.expCompany').innerHTML = CryptoJS.AES.decrypt(response.exp[i].company, psswrd).toString(CryptoJS.enc.Utf8) + ': ' + CryptoJS.AES.decrypt(response.exp[i].timeframe, psswrd).toString(CryptoJS.enc.Utf8)
+        experience.querySelector('.expExp').innerHTML = CryptoJS.AES.decrypt(response.exp[i].description, psswrd).toString(CryptoJS.enc.Utf8)
+        document.querySelector('#experience').appendChild(experience)
       }
     }
   }
