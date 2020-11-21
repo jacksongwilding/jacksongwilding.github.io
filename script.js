@@ -74,12 +74,12 @@ let navbar = {
         userWindow.isMobile = false
       }
     }, 
-    getSize: function(){
-      document.querySelector('.getInTouch').style.marginRight = getInTouch.self.style.marginRight = -1 *getInTouch.self.offsetWidth + 'px';     
+    getSize: function(){    
       if(!userWindow.isMobile && window.innerWidth <= 768){
           userWindow.nowMobile()
       } else if (userWindow.isMobile && window.innerWidth > 768){
           userWindow.notMobile()
+          document.querySelector('.getInTouch').style.marginRight = getInTouch.self.style.marginRight = -1 *getInTouch.self.offsetWidth + 'px'; 
       }
     },
     isMobile: (function getWindowSize(){
