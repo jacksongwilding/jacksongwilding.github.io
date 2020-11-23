@@ -62,7 +62,7 @@ input.border-thick, textarea.border-thick{
   margin-top:-20vh;
   transition: all 1s; 
 }
-.introAnim > div::after{
+.introAnim > div::after, #messageBody::after{
   margin-top: 0;
   position: absolute;
   height: 5vw;
