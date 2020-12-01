@@ -137,7 +137,7 @@ let navbar = {
       }
       url += `md=${CryptoJS.AES.encrypt(JSON.stringify(response), firstpsswrd)}`
       let xmlhttp = new XMLHttpRequest();
-      /file/.test(location.href)?xmlhttp.open('GET', `http://localhost:3000/mail/${url}`):xmlhttp.open('GET', `https://resume--form.herokuapp.com/mail/${url}`);
+      /file/.test(location.href)?xmlhttp.open('POST', `http://localhost:3000/mail/${url}`):xmlhttp.open('GET', `https://resume--form.herokuapp.com/mail/${url}`);
       xmlhttp.setRequestHeader('tag', 'resume')
       xmlhttp.onload = function () {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
