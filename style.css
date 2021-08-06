@@ -101,6 +101,32 @@ input.border-thick, textarea.border-thick{
 .display_desktop{
   display:inherit;
 }
+
+.skillsGrid {
+  display: grid; 
+  grid-template-columns: auto 1fr 2rem; 
+  margin: 0; 
+  padding-right: 0; 
+  justify-items: start; 
+  column-gap: 15px; 
+  row-gap: 5px; 
+  align-items: center;
+}
+
+.skillLevel {
+  background-color: rgb(108, 117, 125); 
+  width: 100%; 
+  height: 100%; 
+  display: flex; 
+  flex-direction: row-reverse;
+}
+.skillLevel > * {
+  height: 100%;
+}
+
+.downDrop {
+  grid-column: 1 / -1;
+}
 @media (max-width: 768px) { 
   .display_mobile{
     display: inherit; 
