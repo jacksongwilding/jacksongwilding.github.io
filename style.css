@@ -20,6 +20,14 @@ div.btn{
   height: 1em;
   width: 1em;
 }
+
+.dash {
+  height: .25em;
+  background: #666;
+  min-width: .5em;
+  margin-top: .7em;
+  margin-left: .5em;
+}
 .navbar{
   z-index: 2!important;
 }
@@ -127,6 +135,7 @@ input.border-thick, textarea.border-thick{
 .downDrop {
   grid-column: 1 / -1;
 }
+
 @media (max-width: 768px) { 
   .display_mobile{
     display: inherit; 
